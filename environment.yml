@@ -1,0 +1,23 @@
+name: cfdml
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - numpy=1.24
+  - scipy
+  - pandas
+  - matplotlib
+  - scikit-learn
+  - h5py
+  - mkl
+  - mkl-service
+  - pip
+  - pip:
+    - tensorflow==2.14.0
+    - meshio
+    - pyvista
+    - vtk
+    - pyvistaqt
+    - pyevtk
+    - scikit-image
