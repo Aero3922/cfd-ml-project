@@ -1,166 +1,157 @@
 🚀 CFD–ML Aero Project Portfolio
 
-Author: Aditya
-Tech Stack: ANSYS Fluent, CFD, Turbulence Modeling, Python, NumPy, TensorFlow, PyVista, MeshIO, VTK, Git, JupyterLab
-Status: Active Development (2025–2026)
+**Author:** Aditya subhash reddy karri
 
-📌 1. Project Overview
+**Location:** Hyderabad (open to relocation)
+**Contact:** [adityakarri39@gmail.com](mailto:adityakarri39@gmail.com)
 
-This repository documents a full end-to-end CFD + Machine Learning workflow applied to aerospace and propulsion problems.
-The goal is to build a strong, industry-relevant portfolio targeting roles in:
+**Tech Stack:**
+ANSYS Fluent · CFD · Turbulence Modeling · Python · NumPy · TensorFlow · PyVista · MeshIO · VTK · Git · JupyterLab
 
-🚀 Aerospace Startups (Skyroot, Agnikul, Bellatrix)
+**Status:** Active development — **CFD workflows implemented, ML extensions ongoing**
 
-✈️ Aerodynamics / Propulsion CFD Roles
+---
 
-🔥 High-Fidelity CFD Research
+## 📌 1. Overview
+This repository documents a **structured, end-to-end CFD workflow with machine-learning extensions**, focused on **aerospace and propulsion applications**.
+The primary emphasis of this work is **CFD correctness and physical understanding** (geometry, meshing, turbulence modeling, solver setup, and post-processing).
+Machine learning components are being **incrementally developed on top of validated CFD data** to explore surrogate modeling and acceleration use cases.
 
-🤖 Physics-ML / Surrogate Modeling
+This portfolio is intended to demonstrate:
+* Practical CFD capability using **ANSYS Fluent**
+* Clean, reproducible **Python-based post-processing**
+* A disciplined pathway from **physics-based simulation → data → ML**
 
-This repo contains:
+## 🎯 2. Target Roles
 
-High-quality ANSYS Fluent cases
+This portfolio is aligned with entry-level to early-career roles such as:
+* CFD Engineer
+* Aerodynamics Engineer
+* Aerospace Simulation Engineer
+* Propulsion / Internal Flow CFD Engineer
+* Physics-ML / Simulation Acceleration Engineer
 
-Clean Python post-processing tools
+## 📁 3. Repository Structure
 
-Reproducible ML models for CFD datasets
-
-Professional project structure & documentation
-
-📁 2. Repository Structure
+```
 cfd-ml-project/
 │
-├── ansys_cases/         # All Fluent cases (mesh, setup, results)
+├── ansys_cases/          # Fluent cases (geometry, mesh, setup)
 │   ├── setup/
 │   └── results/
 │
 ├── data/
-│   ├── raw/             # Raw simulation exports
-│   ├── processed/       # Cleaned & structured data for ML
-│   └── meshes/          # Mesh files (.msh/.cas.h5)
+│   ├── raw/              # Raw CFD exports
+│   ├── processed/        # Cleaned datasets for analysis / ML
+│   └── meshes/           # Mesh files (.msh / .cas.h5)
 │
-├── notebooks/           # JupyterLab notebooks for analysis/ML
-├── scripts/             # Python automation & utilities
-├── utils/               # Helper modules (mesh readers, VTK utils)
+├── notebooks/            # Jupyter notebooks (CFD analysis, ML experiments)
+├── scripts/              # Python automation & utilities
+├── utils/                # Helper modules (VTK, mesh readers, etc.)
 │
-├── models/              # ML models
+├── models/
 │   ├── checkpoints/
 │   └── final/
 │
-├── tests/               # Environment & code sanity tests
+├── tests/                # Environment & sanity checks
 │
-├── environment.yml      # Fully reproducible Python environment
-├── run_test.py          # Quick health check for setup
-└── README.md            # This file
+├── environment.yml       # Reproducible Python environment
+├── run_test.py           # Environment smoke test
+└── README.md
+```
 
-🧪 3. Environment Setup
-
-Recreate this environment on any machine:
-
+## 🧪 4. Environment Setup
+The Python environment is fully reproducible using Conda.
+```bash
 conda env create -f environment.yml
 conda activate cfdml
+```
 
-
-To validate the installation:
-
+Verify the setup:
+```bash
 python run_test.py
-
-
+```
 Expected output:
+
+```
 Environment smoke test: OK ✓
+```
+---
 
-🧰 4. Tools & Technologies
-CFD Tools
+## 🧰 5. Tools & Technologies
 
-ANSYS Fluent 2023R1 (validated)
+### CFD & Simulation
+* **ANSYS Fluent 2025 R1** (used for all CFD cases)
+* External & internal flow simulations
+* Turbulence models: **RANS (k-ω SST, k-ε)**
+* Structured and unstructured meshing
+* Force, pressure coefficient, and field post-processing
 
-Turbulence Models: k-ω SST, k-ε, RANS
+### Python / Data / ML
+* NumPy, Pandas
+* TensorFlow (for surrogate experiments)
+* Matplotlib
+* PyVista, VTK, MeshIO (CFD data handling & visualization)
 
-Geometry + meshing (structured/unstructured)
+### Development
+* Git & GitHub
+* JupyterLab
+* Conda (environment management)
+* Windows OS
 
-Python / ML Stack
+---
 
-NumPy, Pandas
+## 📘 6. Implemented & Roadmap Projects
 
-TensorFlow 2.14
+### ✅ 1) Airfoil CFD Dataset & ML Surrogate *(Implemented / In Progress)*
+* 2D airfoil simulations in **ANSYS Fluent**
+* Lift, drag, and pressure coefficient (Cp) extraction
+* Python-based post-processing and automation
+* Initial ML experiments to approximate Cp distributions from CFD data
 
-Matplotlib
+**Status:**
+CFD workflow implemented and reproducible
+ML surrogate development in progress
 
-PyVista (3D visualization)
+### 🔄 2) Rocket Nozzle Internal Flow & Thrust Prediction *(Planned)*
+* Axisymmetric internal flow CFD
+* Chamber pressure and expansion ratio studies
+* Dataset preparation for thrust and Mach number prediction
 
-MeshIO, VTK, scikit-image
+### ⏳ 3) Heat Transfer in Cooling Channels *(Planned)*
+* Conjugate heat transfer (CHT) simulations
+* Wall temperature and heat flux analysis
+* Potential ML-assisted thermal prediction
 
-Dev Tools
+### ⏳ 4) Mesh-to-Field Super-Resolution *(Planned Research Extension)*
+* Learning fine-grid flow features from coarse CFD results
+* Exploration of CNN / U-Net style architectures
+* Physics-aware data-driven enhancement
 
-Git + GitHub
+---
 
-JupyterLab
+## 🏁 7. Current Progress Summary
 
-Windows + Conda environment
+| Component                   | Status         |
+| --------------------------- | -------------- |
+| Repository structure        | ✅ Complete     |
+| Conda environment & tests   | ✅ Complete     |
+| Fluent installation & setup | ✅ Verified     |
+| Core CFD cases              | 🔄 In progress |
+| ML notebooks                | ⏳ Ongoing      |
+| Final surrogate models      | ⏳ Upcoming     |
 
-📘 5. Planned Projects (Recruiter-Friendly & Aero-Relevant)
-✅ 1) Airfoil CFD Dataset + ML Surrogate (Regression)
+---
 
-2D airfoil mesh in Fluent
+## 📌 8. Notes for Reviewers
+This repository is **under active development**.
+* CFD workflows are the primary focus and are designed to be **physically sound and reproducible**
+* Machine learning components are added **progressively**, with emphasis on interpretability and engineering relevance
+* The goal is not to replace CFD, but to **augment it responsibly**
+Feedback and discussion are welcome.
 
-Pressure, velocity, lift/drag for various AoA
-
-Train ML model to predict Cp distribution
-
-(High value for aerodynamics roles)
-
-✅ 2) Rocket Nozzle Internal Flow + Thrust Prediction
-
-Axisymmetric nozzle CFD
-
-Vary chamber pressure & expansion ratio
-
-Train model to estimate thrust & exit Mach
-
-(Directly relevant to Skyroot/Agnikul)
-
-✅ 3) Heat Transfer in a Cooling Channel
-
-Conjugate heat transfer (CHT)
-
-Predict wall temperature distribution
-
-(Good for thermal + ML hybrid profiles)
-
-✅ 4) Mesh-to-Field Super-Resolution Model
-
-Up-sampling coarse CFD results → fine grid
-
-Uses CNN / U-Net architecture
-
-(Trending Physics-ML topic)
-
-🏁 6. Current Progress
-Component	Status
-GitHub project setup	✔ Complete
-Conda environment + testing	✔ Complete
-Fluent installation verified	✔ Complete
-CFD cases	🔄 In progress
-ML notebooks	⏳ Scheduled
-Final models	⏳ Upcoming
-🎯 7. Target Roles
-
-This portfolio is built for roles like:
-
-CFD Engineer
-
-Aerospace Simulation Engineer
-
-Aerodynamics Engineer
-
-Propulsion CFD Engineer
-
-ML for Physics Engineer
-
-🔗 8. Contact
-
-For collaboration or opportunities:
-
-Aditya
-📧 adityakarri39@gmail.com
-📍 hyderabad | Open to relocation
+## 🔗 9. Contact
+For collaboration, discussion, or opportunities:
+**Aditya**
+📧 [adityakarri39@gmail.com](mailto:adityakarri39@gmail.com)
+📍 Hyderabad | Open to relocation

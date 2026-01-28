@@ -1,1 +1,16 @@
 progress.md 
+# ANSYS / Fluent
+*.cas
+*.cas.h5
+*.dat
+*.dat.h5
+dp*/
+SYS/
+FFF/
+Fluent/
+autosave*
+*.jou~
+
+# Large binaries
+ansys_cases/
+ANSYS_RUNS/
