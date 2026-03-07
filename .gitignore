@@ -1,16 +1,20 @@
-progress.md 
-# ANSYS / Fluent
-*.cas
-*.cas.h5
-*.dat
-*.dat.h5
-dp*/
-SYS/
-FFF/
-Fluent/
-autosave*
-*.jou~
+# Ignore Ansys Workbench projects and massive backup folders
+*.wbpj
+*_files/
+*.wbdp
 
-# Large binaries
-ansys_cases/
-ANSYS_RUNS/
+# Ignore raw CFD data and Ansys outputs
+data/raw/
+ansys_cases/*.dat.h5
+*.cas.h5
+*.dat.h5
+*.trn
+*.out
+*.msh
+
+# Ignore logs
+logs/
+
+# Ignore Python cache
+__pycache__/
+.ipynb_checkpoints/
