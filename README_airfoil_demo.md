@@ -11,5 +11,5 @@ The script loads two distinct production models:
 Ensure your `cfdml` conda environment is active. Run the script via the command line, passing your desired Angle of Attack (AoA) using the `--aoa` flag.
 
 ```bash
-python scripts/predict_demo_airfoil.py --aoa 7.5
-(can input any aoa between the training envelope -4 and 18)
+python predict_airfoil_demo.py --aoa 7.5
+(input any aoa between the training envelope -4 and 18)
