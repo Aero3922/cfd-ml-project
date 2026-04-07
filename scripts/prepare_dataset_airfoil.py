@@ -190,4 +190,4 @@ if len(X_data) > 0:
     print(f"Saved Cp distribution plot: {cp_plot_path}")
 
 else:
-    print("\nNo valid cases were processed")
+    print("\nNo valid cases were processed.")
