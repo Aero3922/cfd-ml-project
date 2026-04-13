@@ -34,11 +34,11 @@ To make it as easy as possible to see these speedups in action, I have included 
 conda env create -f environment.yml
 conda activate cfdml
 ```
-2. **Run the Airfoil Inference Demo for any Angle of Attack (e.g., 7.5 degrees):**
+2. **Run the Airfoil Inference Demo for any Angle of Attack (e.g., 16.5 degrees):**
 ```bash
- python predict_airfoil_demo.py --aoa 7.5
+ python predict_airfoil_demo.py --aoa 16.5
 ```
-*What happens next:*  The script will instantly load the saved .keras models, predict the spatial $C_p$ distribution, calculate Lift and Drag, and generate an engineering plot in the reports/demo_outputs/ folder—all within a few seconds.
+*What happens next:*  The script will instantly load the saved .keras models, predict the spatial $C_p$ distribution, calculate Lift and Drag, and generate an engineering plot in the `reports/demo_outputs/` folder—all within a few seconds.
 
 ## Repository Structure
 This codebase is organized to clearly separate the CFD data pipeline from the Machine Learning research and training:
