@@ -13,8 +13,8 @@ The result is a suite of robust surrogate models that execute orders of magnitud
 I tackled two distinct flow regimes to prove this concept. You can dive into the detailed engineering reports, mesh strategies, and failure analyses for each project below:
 
 ### 1. Incompressible Flow: NACA 0012 Airfoil
-* **The Goal:** Predict Lift, Drag, and a 300-point spatial Pressure Coefficient ($C_p$) distribution across a sweeping Angle of Attack (AoA), including post-stall regimes.
-* **The Result:** Achieved a > 2,400x end-to-end script speedup (with core inference taking < 0.05 seconds). Bounded global lift error to < 3.0% during unseen post-stall extrapolation, while identifying critical drag limitations in standard MLP architectures.
+* **The Goal:** Predict Lift, Drag, and a 300-point spatial Pressure Coefficient ($C_p$) distribution across a sweeping Angle of Attack (AoA), including High Alpha  regimes.
+* **The Result:** Achieved a > 1,200x end-to-end script speedup (with core inference taking < 0.6 seconds). Bounded global lift error to < 3.0% during unseen High AoA extrapolation, while identifying critical drag limitations in standard MLP architectures.
 * **The Engineering Challenge:** Solving "Integration Drift." Standard neural networks failed to conserve momentum between the local pressure curves and the global forces. I solved this by engineering a custom Physics-Informed 1D-CNN (PINN-CNN) that predicts the spatial curves and mathematically integrates them in-graph (via non-uniform Trapezoidal rules) to accurately predict global Lift, while a parallel Direct MLP handles Drag.
 * **Read the full report:** [Airfoil Surrogate Documentation](README_Airfoil.md)
 

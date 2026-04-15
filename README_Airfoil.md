@@ -77,7 +77,7 @@ To solve this, a hybrid **1D Convolutional Neural Network (CNN)** was developed.
 A standard neural network was trained and subjected to two distinct data-split regimes to test its physical robustness. While a ROM operates best inside its design envelope, real-world aerodynamics (e.g., gusts, hard maneuvers) will inevitably push the model into Out-of-Distribution (OOD) edge cases. 
 
 1. **The Interpolation Test (Random Split):** The CNN was trained on a random shuffle of all aerodynamic regimes. It achieved near-perfect accuracy (RMSE $\approx 0.017$), proving that inside the envelope, AI can easily connect the dots between known data points.
-2. **The Extrapolation Stress Test (Structured Split):** To prove the model actually learned fluid dynamics—and wouldn't fail catastrophically during an OOD event—the dataset was split strictly by regime. The CNN was trained *only* on the linear regime ($\alpha \le 8^\circ$), validated on unseen transition regime ($8^\circ < \alpha \le 12^\circ$), and asked to predict the unseen post-stall regime ($\alpha > 12^\circ$). 
+2. **The Extrapolation Stress Test (Structured Split):** To prove the model actually learned fluid dynamics—and wouldn't fail catastrophically during an OOD event—the dataset was split strictly by regime. The CNN was trained *only* on the linear regime ($\alpha \le 8^\circ$), validated on unseen transition regime ($8^\circ < \alpha \le 12^\circ$), and asked to predict the unseen high-Alpha regime ($\alpha > 12^\circ$). 
 
 **The Baseline Failure:** Under the extrapolation stress test, the standard CNN failed catastrophically (RMSE $\approx 1.97$). Because it is purely data-driven, it lacked the physical intuition to predict boundary layer separation, instead blindly extending the linear lift trend into unphysical pressure distributions. 
 
@@ -140,7 +140,7 @@ By forcing the model to respect the macroscopic momentum integral, the PINN-CNN 
 
 The PINN-CNN successfully learned to predict the complex boundary layer physics of an airfoil entering aerodynamic stall regime it was never explicitly trained on—while executing the inference in a **few seconds**.
 
-*(Left: Training convergence showing the adaptive Lambda ramping engaging the Physics Penalty. Right: The PINN-CNN successfully capturing the massive suction peak in the unseen post-stall regime).*
+*(Left: Training convergence showing the adaptive Lambda ramping engaging the Physics Penalty. Right: The PINN-CNN successfully capturing the massive suction peak in the unseen high-Alpha regime).*
 <div align="center">
   <img src="reports/pinn_cnn_training_convergence.png" width="45%" />
   <img src="reports/pinn_cnn_cp_prediction.png" width="45%" />
@@ -153,12 +153,12 @@ The PINN-CNN architecture successfully decoupled aerodynamic fidelity from compu
 
 | Metric                        | ANSYS CFD (Ground Truth) | PINN-CNN Surrogate
 | :---                          | :---                     | :---
-| **Compute Time / Case**       | ~795 seconds             | < 0.05 seconds (Core Inference)
-| **Computational Speedup**     | Baseline                 | **> 15,800x Faster**
-| **Global Lift Error ($C_l$)** | Baseline                 | < 3.0% (Unseen Post-Stall Extrapolation)
-| **Global Drag Error ($C_d$)** | Baseline                 | RMSE $\approx$ 0.011 (Fails to capture post-stall penalties)
+| **Compute Time / Case**       | ~795 seconds             | < 0.6 seconds (Core Inference)
+| **Computational Speedup**     | Baseline                 | **> 1,200x Faster**
+| **Global Lift Error ($C_l$)** | Baseline                 | < 3.0% (Unseen High-AoA Extrapolation)
+| **Global Drag Error ($C_d$)** | Baseline                 | RMSE $\approx$ 0.011 (Fails to capture High-AoA penalties)
 
-*Note: While the 15,800x speedup represnts raw mathematical inference, the end-to-end Command Line Interface(CLI) script delivers a >2,400x speedup over the RANS solver. The surrogate provides near-perfect accuracy in the linear regime, with error bounding strictly under 3% even when predicting deep boundary layer separation ($>12^\circ$ AoA) that it was never trained on.*
+*Note: The end-to-end Command Line Interface(CLI) script delivers a >1,200x speedup over the RANS solver. The surrogate provides near-perfect accuracy in the linear regime, with error bounding strictly under 3% even when predicting deep boundary layer separation ($>12^\circ$ AoA) that it was never trained on.*
 
 ---
 
